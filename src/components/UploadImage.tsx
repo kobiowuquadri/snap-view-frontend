@@ -19,7 +19,7 @@ function ImageUpload() {
     const token = localStorage.getItem("token")
 
     try {
-      const response = await axios.post('http://localhost:5000/data/upload', formData, {
+      const response = await axios.post('https://snap-view-backend.onrender.com/data/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${token}`,

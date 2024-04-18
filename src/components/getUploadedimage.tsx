@@ -12,7 +12,7 @@ function ImageGallery() {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/data/images', {
+        const response = await axios.get('https://snap-view-backend.onrender.com/data/images', {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },

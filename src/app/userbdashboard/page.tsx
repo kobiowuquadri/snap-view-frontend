@@ -12,7 +12,7 @@ function UserBPage () {
       const token = localStorage.getItem('token')
 
       try {
-        const response = await axios.get('http://localhost:5000/data/recent', {
+        const response = await axios.get('https://snap-view-backend.onrender.com/data/recent', {
           headers: {
             Authorization: `Bearer ${token}`
           }

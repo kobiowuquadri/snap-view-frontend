@@ -17,7 +17,7 @@ const UserAPage = () => {
     const token = localStorage.getItem("token")
     try {
       const response = await axios.post(
-        "http://localhost:5000/data/submit",
+        "https://snap-view-backend.onrender.com/data/submit",
         {
           companyName,
           numOfUsers: parseInt(numOfUsers),
