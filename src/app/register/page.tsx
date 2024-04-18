@@ -1,32 +1,29 @@
 'use client'
 
-// Register.js
-
-import React, { useState } from 'react';
-import firebase from '../../firebase/firebase';
-import 'firebase/compat/auth'; 
+import React, { useState } from 'react'
+import firebase from '../../firebase/firebase'
+import 'firebase/compat/auth'
 
 const Page = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState(null);
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState(null)
 
   const handleRegister = async () => {
     try {
-      await firebase.auth().createUserWithEmailAndPassword(email, password);
-      // User signed up successfully
-      setError(null);
-      setEmail('');
-      setPassword('');
-      
-      // Redirect to login after successful signup
-      window.location.href = '/login';
-      setError(null); // Clear any previous errors
-    } catch (error : any) {
-      console.error('Error signing up:', error.message);
-      setError(error.message); // Display error message
+      await firebase.auth().createUserWithEmailAndPassword(email, password)
+            setError(null)
+      setEmail('')
+      setPassword('')
+
+
+      window.location.href = '/login'
+      setError(null)
+    } catch (error: any) {
+      console.error('Error signing up:', error.message)
+      setError(error.message)
     }
-  };
+  }
 
   return (
     <div className="bg-green-600 flex flex-col gap-5 p-5 w-auto max-w-sm mx-auto rounded-lg shadow-lg">
@@ -53,7 +50,7 @@ const Page = () => {
         Sign Up
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default Page;
+export default Page

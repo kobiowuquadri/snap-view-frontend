@@ -1,44 +1,41 @@
-'use client'
+"use client"
 
-import React, { useState } from 'react';
-import axios from 'axios'; // Import axios for making HTTP requests
+import React, { useState } from "react"
+import axios from "axios"
 
 const UserAPage = () => {
-  const [companyName, setCompanyName] = useState('');
-  const [numOfUsers, setNumOfUsers] = useState('');
-  const [numOfProducts, setNumOfProducts] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [companyName, setCompanyName] = useState("")
+  const [numOfUsers, setNumOfUsers] = useState("")
+  const [numOfProducts, setNumOfProducts] = useState("")
+  const [successMessage, setSuccessMessage] = useState("")
+  const [errorMessage, setErrorMessage] = useState("")
 
-  const handleSubmit = async (e : any) => {
-    e.preventDefault();
+  const handleSubmit = async (e: any) => {
+    e.preventDefault()
 
-    const token =  localStorage.getItem('token');
-
+    const token = localStorage.getItem("token")
     try {
       const response = await axios.post(
-        'http://localhost:5000/data/submit',
+        "http://localhost:5000/data/submit",
         {
           companyName,
           numOfUsers: parseInt(numOfUsers),
-          numOfProducts: parseInt(numOfProducts)
+          numOfProducts: parseInt(numOfProducts),
         },
         {
           headers: {
-            Authorization: `Bearer ${token}` 
-          }
+            Authorization: `Bearer ${token}`,
+          },
         }
-      );
+      )
 
       console.log(response)
 
-      // Handle success
-      setSuccessMessage('Data submitted successfully!');
+      setSuccessMessage("Data submitted successfully!")
     } catch (error) {
-      // Handle error
-      setErrorMessage('Failed to submit data. Please try again.');
+      setErrorMessage("Failed to submit data. Please try again.")
     }
-  };
+  }
 
   return (
     <div>
@@ -70,10 +67,10 @@ const UserAPage = () => {
         </label>
         <button type="submit">Submit</button>
       </form>
-      {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
-      {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+      {successMessage && <p style={{ color: "green" }}>{successMessage}</p>}
+      {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
     </div>
-  );
-};
+  )
+}
 
-export default UserAPage;
+export default UserAPage
