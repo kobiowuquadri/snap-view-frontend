@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import ImageUpload from '@/components/UploadImage'
 
 function UserBPage () {
   const [userData, setUserData] = useState<any>(null)
@@ -43,6 +44,9 @@ function UserBPage () {
       ) : (
         <p>Loading user data...</p>
       )}
+      <div>
+        <ImageUpload/>
+      </div>
     </div>
   )
 }

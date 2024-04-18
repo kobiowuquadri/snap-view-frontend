@@ -2,6 +2,7 @@
 
 import React, { useState } from "react"
 import axios from "axios"
+import ImageGallery from "@/components/getUploadedimage"
 
 const UserAPage = () => {
   const [companyName, setCompanyName] = useState("")
@@ -10,7 +11,7 @@ const UserAPage = () => {
   const [successMessage, setSuccessMessage] = useState("")
   const [errorMessage, setErrorMessage] = useState("")
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
     const token = localStorage.getItem("token")
@@ -69,6 +70,10 @@ const UserAPage = () => {
       </form>
       {successMessage && <p style={{ color: "green" }}>{successMessage}</p>}
       {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+
+      <h4>Image Upload</h4>
+      <ImageGallery/>
+      
     </div>
   )
 }
